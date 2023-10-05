@@ -1,0 +1,14 @@
+{
+  "name": "solr",
+  "version": "0.1.0",
+  "readme": "Plugin for the [`solr`](https://www.nixhub.io/packages/solr) package. This plugin configures Solr to use a local pid and logs directories and a service.",
+  "create_files": {
+    "{{.Virtenv}}/logs": "",
+    "{{.Virtenv}}/pid": "",
+    "{{ .Virtenv }}/process-compose.yaml": "config/process-compose.yaml"
+  },
+  "env": {
+    "SOLR_LOGS_DIR": "{{.Virtenv}}/logs",
+    "SOLR_PID_DIR": "{{.Virtenv}}/pid"
+  }
+}

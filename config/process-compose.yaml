@@ -1,0 +1,10 @@
+version: "0.5"
+
+processes:
+  solr:
+    command: "solr start"
+    is_daemon: true
+    shutdown:
+      command: "solr stop"
+    availability:
+      restart: "always"
