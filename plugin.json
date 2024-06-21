@@ -1,7 +1,8 @@
 {
   "name": "solr",
-  "version": "0.1.1",
-  "readme": "Plugin for the [`solr`](https://www.nixhub.io/packages/solr) package. This plugin configures Solr to use a local pid and logs directories and a service.",
+  "version": "0.2.0",
+  "description": "Plugin for the [`solr`](https://www.nixhub.io/packages/solr) package. This plugin configures Solr to use a local pid and logs directories and a service.",
+  "packages": [ "solr@8.6.3", "curl@latest" ],
   "create_files": {
     "{{.Virtenv}}/logs": "",
     "{{.Virtenv}}/pid": "",
@@ -11,6 +12,7 @@
   "env": {
     "SOLR_LOGS_DIR": "{{.Virtenv}}/logs",
     "SOLR_PID_DIR": "{{.Virtenv}}/pid",
-    "SOLR_HOME": "{{.Virtenv}}/data"
+    "SOLR_HOME": "{{.Virtenv}}/data",
+    "SOLR_PORT": "8983"
   }
 }

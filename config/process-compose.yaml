@@ -2,9 +2,12 @@ version: "0.5"
 
 processes:
   solr:
-    command: "solr start"
+    command: "solr start -p $SOLR_PORT"
     is_daemon: true
     shutdown:
-      command: "solr stop"
+      command: "solr stop -p $SOLR_PORT"
     availability:
       restart: "always"
+    readiness_probe:
+      exec:
+        command: "curl -qsf http://localhost:$SOLR_PORT/solr"
