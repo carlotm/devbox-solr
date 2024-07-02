@@ -2,7 +2,7 @@ version: "0.5"
 
 processes:
   solr:
-    command: "solr start -p $SOLR_PORT"
+    command: "solr start -Dsolr.environment=${SOLR_ENV} -p $SOLR_PORT"
     is_daemon: true
     shutdown:
       command: "solr stop -p $SOLR_PORT"
