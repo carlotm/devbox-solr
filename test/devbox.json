@@ -1,0 +1,25 @@
+{
+    "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.13.7/.schema/devbox.schema.json",
+    "packages": ["exa@2023-03-01"],
+    "include": ["github:carlotm/devbox-solr"],
+    "env": {
+        "MICCHECK": "one_two_one_two"
+    },
+    "shell": {
+        "scripts": {
+            "test": [
+                "which solr curl exa",
+                "test -f .devbox/virtenv/carlotm.devbox-solr.solr/process-compose.yaml",
+                "test -f .devbox/virtenv/carlotm.devbox-solr.solr/data/solr.xml",
+                "test -d .devbox/virtenv/carlotm.devbox-solr.solr/logs",
+                "test -d .devbox/virtenv/carlotm.devbox-solr.solr/pid",
+                "test $SOLR_LOGS_DIR = $(pwd)/.devbox/virtenv/carlotm.devbox-solr.solr/logs",
+                "test $SOLR_PID_DIR = $(pwd)/.devbox/virtenv/carlotm.devbox-solr.solr/pid",
+                "test $SOLR_HOME = $(pwd)/.devbox/virtenv/carlotm.devbox-solr.solr/data",
+                "test $SOLR_PORT = 8983",
+                "test $SOLR_ENV = dev,label=MyDev,color=blue",
+                "test $MICCHECK = one_two_one_two"
+            ]
+        }
+    }
+}
